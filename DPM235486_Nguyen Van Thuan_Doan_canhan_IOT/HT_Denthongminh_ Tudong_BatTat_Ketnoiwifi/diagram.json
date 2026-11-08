@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "NGUYEN VAN THUAN",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -150, "attrs": {} },
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 35, "left": 20, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -111.2,
+      "left": 184.62,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -45, "left": 98, "attrs": { "color": "yellow" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 135,
+      "left": 75,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "bb1:bp.1", "red", [ "v0" ] ],
+    [ "esp:GND.1", "bb1:bn.1", "black", [ "v0" ] ],
+    [ "pir1:VCC", "bb1:20t.a", "red", [ "v0" ] ],
+    [ "pir1:OUT", "bb1:21t.a", "green", [ "v0" ] ],
+    [ "pir1:GND", "bb1:22t.a", "black", [ "v0" ] ],
+    [ "bb1:20t.e", "bb1:bp.18", "red", [ "v0" ] ],
+    [ "bb1:22t.e", "bb1:bn.19", "black", [ "v0" ] ],
+    [ "bb1:21t.e", "esp:15", "green", [ "v0" ] ],
+    [ "led1:A", "bb1:9t.a", "yellow", [ "v0" ] ],
+    [ "led1:C", "bb1:8t.a", "black", [ "v0" ] ],
+    [ "bb1:9t.e", "esp:4", "yellow", [ "v0" ] ],
+    [ "r1:1", "bb1:8t.d", "black", [ "v0" ] ],
+    [ "r1:2", "bb1:bn.6", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
